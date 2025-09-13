@@ -1,21 +1,76 @@
-MIT License
+# 🏨 Hotel Reservation Admin Dashboard – Angular 17
 
-Copyright (c) 2025 CodedThemes
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Bootstrap 5](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 🌟 Description
+Ce projet est basé sur le **Gradient Able Free Angular 17 Admin Dashboard**.  
+Il a été **modifié et personnalisé** pour devenir le **Dashboard Admin** de l’application **Hotel Reservation App**.  
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Fonctionnalités principales :
+- Gestion des **hôtels et chambres**  
+- Gestion des **réservations clients**  
+- Suivi des **points de fidélité**  
+- Statistiques et rapports pour l’**administrateur**  
+- Interface moderne et responsive basée sur **Angular 17** et **Bootstrap 5**  
+
+---
+
+## ⚡ Fonctionnalités clés
+- 🔑 Authentification admin  
+- 📊 Tableaux de bord interactifs  
+- 🛏 Gestion des hôtels et des chambres  
+- 🎁 Gestion des points de fidélité  
+- 🌐 Support multi-langue (optionnel)  
+- 🌓 Mode clair / sombre  
+
+---
+
+## 🛠 Technologies utilisées
+| Frontend | UI/UX | License |
+|----------|-------|--------|
+| Angular 17 | Bootstrap 5 | MIT |
+| TypeScript | Gradient Able Template | |
+
+---
+
+## 🚀 Installation & Lancement
+
+1. **Cloner le projet**  
+```bash
+git clone https://github.com/siwar-git/hotel-reservation-dashboard.git
+cd hotel-reservation-dashboard
+Installer les dépendances
+
+bash
+Copier le code
+npm install
+Lancer le serveur Angular
+
+bash
+Copier le code
+ng serve
+Accéder au dashboard sur http://localhost:4200.
+
+📂 Structure du projet
+pgsql
+Copier le code
+hotel-reservation-dashboard/
+├─ src/
+│  ├─ app/
+│  ├─ assets/
+│  └─ index.html
+├─ angular.json
+├─ package.json
+├─ README.md
+└─ .gitignore
+👩‍💻 À propos de l’auteur
+👩‍🎓 Junior Developer | Angular, Flutter & Spring Boot
+⚡ Passionnée par le développement d’applications web et mobiles
+📫 Contact : Email | LinkedIn
+
+📜 License
+MIT License – basé sur Gradient Able Free Angular Template.
