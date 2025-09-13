@@ -1,0 +1,39 @@
+<!-- sign-in.component.html -->
+<header class="header">
+  <img src="assets/images/marhabe.png" alt="Logo marhabe" class="logo" width="150px" height="130px">
+  <!-- Supprimez le formulaire de login du header -->
+</header>
+
+<section class="login-container">
+  <h2>Connexion</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" class="form-control" 
+             [class.is-invalid]="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+      <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)" class="invalid-feedback">
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">Email requis</div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">Format email invalide</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input type="password" formControlName="motDePass" class="form-control"
+             [class.is-invalid]="loginForm.get('motDePass')?.invalid && (loginForm.get('motDePass')?.touched || loginForm.get('motDePass')?.dirty)">
+      <div *ngIf="loginForm.get('motDePass')?.invalid && (loginForm.get('motDePass')?.touched || loginForm.get('motDePass')?.dirty)" class="invalid-feedback">
+        <div *ngIf="loginForm.get('motDePass')?.errors?.['required']">Mot de passe requis</div>
+        <div *ngIf="loginForm.get('motDePass')?.errors?.['minlength']">
+          Le mot de passe doit contenir au moins 6 caractères
+        </div>
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="loading || loginForm.invalid">
+      <span *ngIf="!loading">Connexion</span>
+      <span *ngIf="loading">Connexion en cours...</span>
+    </button>
+  </form>
+  <p class="forgot">Vous avez oublié votre email et/ou votre mot de passe ?</p>
+  <p class="support">Votre navigateur doit supporter les cookies ⚙️</p>
+</section>

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-12">
+    <app-card cardTitle="Ajouter une offre">
+      <form [formGroup]="offreForm" (ngSubmit)="onSubmit()" class="p-4">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label>Titre</label>
+            <input class="form-control" formControlName="title" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Prix</label>
+            <input type="number" class="form-control" formControlName="price" />
+          </div>
+
+          <div class="col-12">
+            <label>Description</label>
+            <textarea class="form-control" rows="3" formControlName="description"></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <label>Image</label>
+            <input type="file" class="form-control" (change)="onImageSelected($event)" />
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Ajouter l'offre</button>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

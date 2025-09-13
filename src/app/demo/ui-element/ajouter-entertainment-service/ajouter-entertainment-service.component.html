@@ -1,0 +1,41 @@
+<p>ajouter-entertainment-service works!</p>
+<div class="row">
+    <div class="col-12">
+      <app-card cardTitle="Ajouter un service de divertissement" [options]="false">
+        <form [formGroup]="entertainmentForm" (ngSubmit)="onSubmit()" class="p-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nom" class="form-label">Nom du service</label>
+              <input type="text" id="nom" formControlName="nom" class="form-control" />
+              <div *ngIf="entertainmentForm.get('nom')?.invalid && entertainmentForm.get('nom')?.touched" class="text-danger">
+                <small *ngIf="entertainmentForm.get('nom')?.hasError('required')">Le nom du service est requis.</small>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <label for="prix" class="form-label">Prix</label>
+              <input type="number" id="prix" formControlName="prix" class="form-control" />
+              <div *ngIf="entertainmentForm.get('prix')?.invalid && entertainmentForm.get('prix')?.touched" class="text-danger">
+                <small *ngIf="entertainmentForm.get('prix')?.hasError('required')">Le prix est requis.</small>
+                <small *ngIf="entertainmentForm.get('prix')?.hasError('min')">Le prix doit être positif.</small>
+              </div>
+            </div>
+  
+            <div class="col-12">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" formControlName="description" class="form-control" rows="3"></textarea>
+              <div *ngIf="entertainmentForm.get('description')?.invalid && entertainmentForm.get('description')?.touched" class="text-danger">
+                <small *ngIf="entertainmentForm.get('description')?.hasError('required')">La description est requise.</small>
+              </div>
+            </div>
+  
+            <div class="col-12 text-end mt-4">
+              <button type="submit" class="btn btn-success" [disabled]="entertainmentForm.invalid">
+                Ajouter le service de divertissement
+              </button>
+            </div>
+          </div>
+        </form>
+      </app-card>
+    </div>
+  </div>

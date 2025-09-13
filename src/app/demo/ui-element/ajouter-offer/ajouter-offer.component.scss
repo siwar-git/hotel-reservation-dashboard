@@ -1,0 +1,78 @@
+.ajouter-agent-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: #f9fafb;
+  }
+  
+  .image-section {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  }
+  
+  .form-section {
+    flex: 1;
+    min-width: 320px;
+    max-width: 700px;
+  }
+  
+  .agent-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+    width: 100%;
+  }
+  
+  .agent-card h5 {
+    font-weight: 600;
+    color: #198754;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #212529;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.15);
+  }
+  
+  button[type='submit'] {
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+  }
+  
+  @media (max-width: 992px) {
+    .ajouter-agent-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image-section,
+    .form-section {
+      max-width: 100%;
+    }
+  }
+  

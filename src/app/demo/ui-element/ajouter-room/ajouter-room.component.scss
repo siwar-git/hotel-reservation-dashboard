@@ -1,0 +1,53 @@
+/* Conteneur principal */
+form {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Labels */
+  form .form-label {
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  /* Inputs et selects */
+  form .form-control,
+  form .form-select {
+    border-radius: 6px;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  form .form-control:focus,
+  form .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+  }
+  
+  /* Bouton */
+  form button[type="submit"] {
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: #198754;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #157347;
+  }
+  
+  /* Responsive spacing */
+  @media (max-width: 768px) {
+    form .row .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 80%;
+    }
+  }
+  

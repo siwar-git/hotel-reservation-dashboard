@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-12">
+    <app-card cardTitle="Ajouter un hôtel" [options]="false">
+      <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()" class="p-4" enctype="multipart/form-data">
+        <div class="row g-3">
+          <!-- Basic Information -->
+          <div class="col-md-6">
+            <label for="nom" class="form-label">Nom de l'hôtel</label>
+            <input type="text" id="nom" formControlName="nom" class="form-control" />
+            <div *ngIf="hotelForm.get('nom')?.invalid && hotelForm.get('nom')?.touched" class="text-danger">
+              <small *ngIf="hotelForm.get('nom')?.hasError('required')">Le nom est requis.</small>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="nombre_etoiles" class="form-label">Nombre d'étoiles</label>
+            <input type="number" id="nombre_etoiles" formControlName="nombre_etoiles" 
+                   class="form-control" min="1" max="5" />
+            <div *ngIf="hotelForm.get('nombre_etoiles')?.invalid && hotelForm.get('nombre_etoiles')?.touched" 
+                 class="text-danger">
+              <small *ngIf="hotelForm.get('nombre_etoiles')?.hasError('required')">Le nombre d'étoiles est requis.</small>
+              <small *ngIf="hotelForm.get('nombre_etoiles')?.hasError('min') || 
+                            hotelForm.get('nombre_etoiles')?.hasError('max')">
+                Doit être entre 1 et 5
+              </small>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="col-md-6">
+            <label for="telephone" class="form-label">Téléphone</label>
+            <input type="text" id="telephone" formControlName="telephone" class="form-control" />
+            <div *ngIf="hotelForm.get('telephone')?.invalid && hotelForm.get('telephone')?.touched" class="text-danger">
+              <small *ngIf="hotelForm.get('telephone')?.hasError('required')">Le téléphone est requis.</small>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control" />
+            <div *ngIf="hotelForm.get('email')?.invalid && hotelForm.get('email')?.touched" class="text-danger">
+              <small *ngIf="hotelForm.get('email')?.hasError('required')">L'email est requis.</small>
+              <small *ngIf="hotelForm.get('email')?.hasError('email')">Format d'email invalide.</small>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="whatsApp" class="form-label">WhatsApp</label>
+            <input type="text" id="whatsApp" formControlName="whatsApp" class="form-control" />
+          </div>
+
+          <div class="col-md-6">
+            <label for="adresse" class="form-label">Adresse</label>
+            <input type="text" id="adresse" formControlName="adresse" class="form-control" />
+            <div *ngIf="hotelForm.get('adresse')?.invalid && hotelForm.get('adresse')?.touched" class="text-danger">
+              <small *ngIf="hotelForm.get('adresse')?.hasError('required')">L'adresse est requise.</small>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" formControlName="description" class="form-control" rows="3"></textarea>
+            <div *ngIf="hotelForm.get('description')?.invalid && hotelForm.get('description')?.touched" class="text-danger">
+              <small *ngIf="hotelForm.get('description')?.hasError('required')">La description est requise.</small>
+              <small *ngIf="hotelForm.get('description')?.hasError('maxlength')">
+                La description ne peut pas dépasser 1000 caractères.
+              </small>
+            </div>
+          </div>
+
+          <!-- Files Upload -->
+          <div class="col-md-6">
+            <label for="presentations" class="form-label">Fichier de présentation</label>
+            <input type="file" id="presentations" class="form-control" 
+                   (change)="onPresentationFileSelected($event)" accept=".pdf,.doc,.docx" />
+          </div>
+
+          <div class="col-md-6">
+            <label for="image" class="form-label">Image principale</label>
+            <input type="file" id="image" class="form-control" 
+                   (change)="onImageFileSelected($event)" accept="image/*" />
+          </div>
+
+          <div class="col-12">
+            <label for="gallery" class="form-label">Galerie d'images</label>
+            <input type="file" id="gallery" class="form-control" 
+                   (change)="onGalleryFilesSelected($event)" multiple accept="image/*" />
+            <small class="text-muted">Vous pouvez sélectionner plusieurs images</small>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="col-12 text-end mt-4">
+            <button type="submit" class="btn btn-success" [disabled]="hotelForm.invalid">
+              Ajouter l'hôtel
+            </button>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

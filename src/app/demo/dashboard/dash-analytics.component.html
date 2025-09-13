@@ -1,0 +1,253 @@
+<div class="row">
+  <div *ngFor="let card of cards;" class="col-md-6 col-xl-3">
+    <app-card [hidHeader]="true" [cardClass]="card.background + ' order-card'">
+      <h6 class="text-white">{{ card.title }}</h6>
+      <h2 class="text-end text-white">
+        <i class="feather {{ card.icon }} float-start"></i>
+        <span>{{ card.number }}</span>
+      </h2>
+      <p class="m-b-0">
+        {{ card.text }}
+        <span class="float-end">{{ card.no }}</span>
+      </p>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Répartition des hôtels par nombre d'étoiles</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_6"
+          [chart]="chartOptions_6.chart"
+          [series]="chartOptions_6.series"
+          [plotOptions]="chartOptions_6.plotOptions"
+          [xaxis]="chartOptions_6.xaxis"
+          [colors]="chartOptions_6.colors"
+          [title]="chartOptions_6.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Répartition des types de chambres</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_roomType"
+          [chart]="chartOptions_roomType.chart"
+          [series]="chartOptions_roomType.series"
+          [labels]="chartOptions_roomType.labels"
+          [colors]="chartOptions_roomType.colors"
+          [legend]="chartOptions_roomType.legend"
+          [title]="chartOptions_roomType.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Points des Clients</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_clientsPoints"
+          [series]="chartOptions_clientsPoints.series"
+          [chart]="chartOptions_clientsPoints.chart"
+          [xaxis]="chartOptions_clientsPoints.xaxis"
+          [yaxis]="chartOptions_clientsPoints.yaxis"
+          [tooltip]="chartOptions_clientsPoints.tooltip"
+          [title]="chartOptions_clientsPoints.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Nombre de réservations par mois</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_reservations"
+          [series]="chartOptions_reservations.series"
+          [chart]="chartOptions_reservations.chart"
+          [xaxis]="chartOptions_reservations.xaxis"
+          [yaxis]="chartOptions_reservations.yaxis"
+          [stroke]="chartOptions_reservations.stroke"
+          [title]="chartOptions_reservations.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Taux d'occupation des chambres par type</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_occupancy"
+          [series]="chartOptions_occupancy.series"
+          [chart]="chartOptions_occupancy.chart"
+          [plotOptions]="chartOptions_occupancy.plotOptions"
+          [xaxis]="chartOptions_occupancy.xaxis"
+          [yaxis]="chartOptions_occupancy.yaxis"
+          [colors]="chartOptions_occupancy.colors"
+          [title]="chartOptions_occupancy.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Revenu total généré par mois</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart
+          *ngIf="chartOptions_revenue"
+          [series]="chartOptions_revenue.series"
+          [chart]="chartOptions_revenue.chart"
+          [xaxis]="chartOptions_revenue.xaxis"
+          [yaxis]="chartOptions_revenue.yaxis"
+          [stroke]="chartOptions_revenue.stroke"
+          [colors]="chartOptions_revenue.colors"
+          [title]="chartOptions_revenue.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <app-card cardTitle="Campaign Monitor" cardClass="tab-card tab-content" blockClass="nav-fill" [options]="false">
+      <ul ngbNav #nav="ngbNav" aria-busy="true" class="nav-pills">
+        <!-- Onglet Home -->
+        <li [ngbNavItem]="1" class="flex">
+          <a ngbNavLink>
+            <i class="fa fa-home m-r-10"></i> Home
+          </a>
+          <ng-template ngbNavContent>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nom</th>
+                    <th>Ville</th>
+                    <th>Total Chambres</th>
+                    <th>Moyenne Avis</th>
+                    <th>Offres</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let hotel of items">
+                    <td>{{ hotel.nom }}</td>
+                    <td>{{ hotel.ville }}</td>
+                    <td>{{ hotel.nombreChambres }}</td>
+                    <td>{{ hotel.moyenneAvis }}</td>
+                    <td>{{ hotel.nombreOffres }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </li>
+  
+        <!-- Onglet Security -->
+        <li [ngbNavItem]="2" class="flex">
+          <a ngbNavLink>
+            <i class="fa fa-key m-r-10"></i> Security
+          </a>
+          <ng-template ngbNavContent>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let security of totalSecurityServices">
+                    <td>{{ security.name }}</td>
+                    <td>{{ security.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </li>
+  
+        <!-- Onglet Entertainment -->
+        <li [ngbNavItem]="3" class="flex">
+          <a ngbNavLink>
+            <i class="fa fa-play-circle m-r-10"></i> Entertainment
+          </a>
+          <ng-template ngbNavContent>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Horaires</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let entertainment of totalEntertainmentServices">
+                    <td>{{ entertainment.name }}</td>
+                    <td>{{ entertainment.description }}</td>
+                    <td>{{ entertainment.schedule || 'Non spécifié' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </li>
+  
+        <!-- Onglet Big Data -->
+        <li [ngbNavItem]="4" class="flex">
+          <a ngbNavLink>
+            <i class="fa fa-database m-r-10"></i> Big Data
+          </a>
+          <ng-template ngbNavContent>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Métrique</th>
+                    <th>Valeur</th>
+                    <th>Période</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let bigData of totalMetrics">
+                    <td>{{ bigData.metricName }}</td>
+                    <td>{{ bigData.value }}%</td>
+                    <td>{{ bigData.period }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </app-card>
+  </div>  
+  
+</div>

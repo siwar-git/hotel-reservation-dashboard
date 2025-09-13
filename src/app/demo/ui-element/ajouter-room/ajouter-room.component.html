@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-12">
+    <app-card cardTitle="Ajouter une chambre">
+      <form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="p-4">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label>Type</label>
+            <input class="form-control" formControlName="type" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Capacité</label>
+            <input type="number" class="form-control" formControlName="capacite" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Surface (m²)</label>
+            <input type="number" class="form-control" formControlName="surface" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Prix (€)</label>
+            <input type="number" class="form-control" formControlName="price" />
+          </div>
+
+          <div class="col-12">
+            <label>Description</label>
+            <textarea class="form-control" rows="3" formControlName="description"></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <label>Vidéo & Audio</label>
+            <input class="form-control" formControlName="videoAudio" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Internet & Téléphonie</label>
+            <input class="form-control" formControlName="internetTelephonie" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Électronique</label>
+            <input class="form-control" formControlName="electronique" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Salle de bain</label>
+            <input class="form-control" formControlName="salleDeBain" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Extérieur & Vue</label>
+            <input class="form-control" formControlName="terrainExterieurVue" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Lits</label>
+            <input class="form-control" formControlName="lits" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Meubles</label>
+            <input class="form-control" formControlName="meubles" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Autres équipements</label>
+            <input class="form-control" formControlName="autres" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Image principale</label>
+            <input type="file" class="form-control" (change)="onImageSelected($event)" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Galerie (images multiples)</label>
+            <input type="file" class="form-control" multiple (change)="onGallerySelected($event)" />
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" >
+              Ajouter la chambre
+            </button>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

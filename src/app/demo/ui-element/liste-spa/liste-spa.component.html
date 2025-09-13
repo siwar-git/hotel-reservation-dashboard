@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center mb-3 px-3">
+      <h5 class="mb-0">Liste des Spas</h5>
+      <div class="form-group mb-0">
+        <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" style="min-width: 250px" />
+      </div>
+    </div>
+
+    <div class="table-responsive px-3 pb-3">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let spa of filteredSpas(); let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ spa.title }}</td>
+            <td>{{ spa.description | slice:0:50 }}...</td>
+            <td>
+              <img *ngIf="spa.imageUrl" [src]="spa.imageUrl" alt="Spa image" width="60" height="60" style="object-fit: cover; border-radius: 5px;" />
+            </td>
+            <td>
+              <a *ngIf="spa.pdfUrl" [href]="spa.pdfUrl" target="_blank">Voir le PDF</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

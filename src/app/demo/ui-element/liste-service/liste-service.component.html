@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center mb-3 px-3">
+      <h5 class="mb-0">Liste des Services</h5>
+      <div class="form-group mb-0">
+        <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" style="min-width: 250px" />
+      </div>
+    </div>
+
+    <div class="table-responsive px-3 pb-3">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Détails</th>
+            <th>Icône</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of filteredServices(); let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ service.title }}</td>
+            <td>{{ service.description | slice:0:50 }}...</td>
+            <td>{{ service.details }}</td>
+            <td>{{ service.icon }}</td>
+            <td>
+              <img *ngIf="service.imageUrl" [src]="service.imageUrl" alt="Service Image" width="60" height="60" style="object-fit: cover; border-radius: 5px;" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
